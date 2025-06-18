@@ -52,7 +52,7 @@ userSchema.pre("save", async function (next) {
     if(!this.isModified("password")){
         return next()
     }
-    this.password = bcrypt.hash(this.password, 10) //10 matlab kitne rounds lagaye
+    this.password = await bcrypt.hash(this.password, 10) //10 matlab kitne rounds lagaye
     next()
 }) 
 //jab bhi data "save" hoga usse just pehle mera ye kaam kar do.... for more info see mongoose middleware docs
